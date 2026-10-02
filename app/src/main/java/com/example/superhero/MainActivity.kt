@@ -30,9 +30,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-/**
- * Үндсэн Апп компонент
- */
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SuperheroesApp() {
@@ -49,9 +47,7 @@ fun SuperheroesApp() {
     }
 }
 
-/**
- * Аппликейшний Дээд Бар (Top App Bar)
- */
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopAppBar(modifier: Modifier = Modifier) {
