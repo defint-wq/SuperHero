@@ -17,7 +17,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.superhero.model.HeroesRepository
 import com.example.superhero.ui.theme.SuperheroesTheme
-
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.safeDrawing
+import androidx.compose.foundation.layout.statusBarsPadding
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,37 +37,38 @@ class MainActivity : ComponentActivity() {
 }
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SuperheroesApp() {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
             TopAppBar()
-        }
+        },
+        contentWindowInsets = WindowInsets.safeDrawing
     ) { innerPadding ->
         HeroesList(
             heroes = HeroesRepository.heroes,
-            modifier = Modifier.padding(innerPadding)
+            contentPadding = innerPadding
         )
     }
 }
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopAppBar(modifier: Modifier = Modifier) {
-    CenterAlignedTopAppBar(
-        title = {
-            Text(
-                text = stringResource(R.string.app_name),
-                style = MaterialTheme.typography.displayLarge
-            )
-        },
+    Row(
         modifier = modifier
-    )
+            .fillMaxWidth()
+            .padding(vertical = 16.dp)
+            .statusBarsPadding(),
+        horizontalArrangement = Arrangement.Center
+    ) {
+        Text(
+            text = stringResource(R.string.app_name),
+            style = MaterialTheme.typography.displayLarge
+        )
+    }
 }
-
 @Preview(showBackground = true)
 @Composable
 fun SuperheroesPreview() {
