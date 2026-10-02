@@ -28,9 +28,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.superhero.model.Hero
 
-/**
- * Нэг баатрын мэдээллийг харуулах Карт
- */
+
 @Composable
 fun HeroItem(
     hero: Hero,
@@ -76,9 +74,7 @@ fun HeroItem(
     }
 }
 
-/**
- * Баатруудын жагсаалт харуулах LazyColumn
- */
+
 @Composable
 fun HeroesList(
     heroes: List<Hero>,
